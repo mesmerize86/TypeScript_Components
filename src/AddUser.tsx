@@ -6,7 +6,7 @@ interface IProps {
   handleAddPeople: (newUser: Person) => void;
 }
 
-const AddUser = ({ handleAddPeople }: IProps) => {
+const AddUser: React.FC<IProps> = ({ handleAddPeople }) => {
   const [input, setInput] = useState({
     name: "",
     age: "",
