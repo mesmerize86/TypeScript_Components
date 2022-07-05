@@ -3,11 +3,10 @@ import { Input, TextArea, Button } from "./styles";
 import { Person } from "./Types";
 
 interface IProps {
-  people: Person[];
-  setPeople: React.Dispatch<React.SetStateAction<Person[]>>;
+  handleAddPeople: (newUser: Person) => void;
 }
 
-const AddUser = ({ people, setPeople }: IProps) => {
+const AddUser = ({ handleAddPeople }: IProps) => {
   const [input, setInput] = useState({
     name: "",
     age: "",
@@ -25,15 +24,13 @@ const AddUser = ({ people, setPeople }: IProps) => {
   const handleAddUser = (): void => {
     let age = parseInt(input.age, 10);
     if (!input.name || !input.age || !age || !input.url) return;
-    setPeople([
-      ...people,
-      {
-        name: input.name,
-        age: age,
-        url: input.url,
-        note: input.note
-      }
-    ]);
+    let newUser: Person = {
+      name: input.name,
+      age: age,
+      url: input.url,
+      note: input.note
+    };
+    handleAddPeople(newUser);
   };
 
   return (

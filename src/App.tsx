@@ -26,6 +26,10 @@ const data = [
 
 export default function App() {
   const [people, setPeople] = useState<Person[]>(data);
+
+  const handleAddPeople = (newUser: Person) => {
+    setPeople([...people, newUser]);
+  };
   return (
     <div className="App">
       <table>
@@ -33,7 +37,7 @@ export default function App() {
           <List people={people} />
         </tbody>
       </table>
-      <AddUser people={people} setPeople={setPeople} />
+      <AddUser handleAddPeople={handleAddPeople} />
     </div>
   );
 }
