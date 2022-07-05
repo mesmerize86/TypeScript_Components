@@ -1,2 +1,2 @@
-# TypeScript_Components
+# GenericTypes
 Created with CodeSandbox
